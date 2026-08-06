@@ -1,13 +1,22 @@
 # Handoff Document — Python Career Transition
 
-**Purpose:** Paste this at the start of a new Claude conversation so it can continue without re-deriving context.
+**Purpose:** The single source of truth for this work. Read at the start of every session.
 **Last updated:** 6 August 2026
 
 ---
 
 ## 1. How to use this file
 
-New assistant: read sections 2–5 before responding. Section 6 is the actual plan. Do not restart the planning conversation — the decisions in section 4 were made deliberately and have reasoning attached. Challenge them if you have evidence, not on general principle.
+New assistant: read sections 2–5 before responding. Section 6 is the plan; **section 8 is where the last session stopped — start there.** Do not restart the planning conversation — the decisions in section 4 were made deliberately and have reasoning attached. Challenge them if you have evidence, not on general principle.
+
+Work now happens in Claude Code, in the project directory, so code can be run and git driven directly. Demonstrate findings by running them rather than asserting them; it lands better and it catches your own mistakes.
+
+### Picking up next session
+
+1. Read section 8 (session log) for state, then section 3 (working agreement).
+2. `git log --oneline` — the history is the record of what was done and why.
+3. Resume at the **`grade_calculator.py`** questions in section 8; three questions are outstanding and unanswered.
+4. Then `expense_tracker.py` and `bank_accounts.py` (not yet reviewed), then the two remaining M0 items: the **debugger step-through** and the **retrieval check**.
 
 ---
 
@@ -249,7 +258,44 @@ Extracted 6 Aug 2026 from `python_interview_study_plan.md` (the January plan) be
 
 ---
 
-## 8. Open items
+## 8. Session log
+
+### 6 August 2026 — first local session (M0)
+
+Moved from the web chat to Claude Code running in the project directory. That changes the method: code can be run, git driven directly, and findings demonstrated rather than asserted. No more copy-paste.
+
+**Done:**
+
+- **Git repo initialised**, `main`, `.gitignore` for Python/macOS. All work committed. Identity set with `git config --local` (not `--global`) deliberately — see the account note below.
+- **README written** for the repo.
+- **Old January plan deleted.** Its algorithm problems became section 7; the file itself is in git history (`git log --diff-filter=D --oneline -- python_interview_study_plan.md`). Vlad pushed for this — he was right that two plan documents means drift and a permanent tax of remembering which is real.
+- **Refresher pass, 3 of 6 files reviewed** (see below).
+
+**GitHub account situation — resolved enough to work, not fully cleaned up:**
+
+- Account is **`VladTest11`**, on `markovicvladimirr@gmail.com`. Also used for the paid C# project, so it has real collaborator access that must not break.
+- `vladaah1@gmail.com` **is already registered to some other GitHub account** — likely a forgotten second one. Adding it to `VladTest11` fails with "email is already in use."
+- **Decided end state:** rename `VladTest11` → `vladimir-markovic`, with `vladaah1@gmail.com` as primary (it's the inbox he actually reads — Apple ID and devices are on it) and `markovicvladimirr@gmail.com` kept attached as secondary.
+- **Deliberately deferred.** The rename needs a checklist first — `@VladTest11` mentions in past issues/PRs don't get rewritten, and `CODEOWNERS`/CI configs referencing the username break silently. Not worth rushing on a live paid project.
+- **Commits use `markovicvladimirr@gmail.com`** because it's already verified. Do **not** switch to the GitHub `…@users.noreply.github.com` address — it embeds the username, so a later rename orphans attribution. Plain gmail is rename-proof. With both addresses on one account, either attributes correctly and the mix-ups stop mattering.
+
+### Refresher findings
+
+**Method that worked, keep using it:** Vlad's own idea — comments and docstrings hide whether recall is real, since reading `# key= lets you specify HOW to compare` and feeling recognition isn't remembering. Stripped copies get generated to a scratch dir (script at `strip.py` in the job tmp, easy to rewrite: `ast` for docstring line numbers, `tokenize` for comment columns, rebuild line-by-line — `untokenize` breaks on dropped tokens). Originals never touched. Verify stripped copies produce identical output before use.
+
+- **`temperature_converter.py`** — described it accurately from a skim. Real finding: `float(temp)` also raises `ValueError`, so bad-number and bad-unit failures are indistinguishable to a caller, and the docstring documents only one. Left unfixed for M1.
+- **`string_analyzer.py`** — got the return shape and the empty-collection guard (including *why* `max()` errors). Missed `key=`. The gap was not memory: he had not learned that `freq.get` without parentheses is the method passed as a value. Retaught in ~90 seconds with a live demo. Same pattern recurs in `sorted(key=len)` and the lambda in `expense_tracker.py`.
+- **`contact_book.py`** — correctly judged `find_by_phone` fixed, and recalled the bug was indentation. Found live: the docstring sat *above* the `def`, making it a discarded expression with `__doc__ = None`. **Vlad fixed it himself mid-session.** Still shaky on `self` — thought it was a call or an initialisation step, not the instance. Retaught as `book.method(x)` → `Class.method(book, x)`. **The M0 debugger task is now targeted: breakpoint in `find_by_phone`, watch `self` in the variables pane and see that it *is* `book`.**
+- **`grade_calculator.py`** — **questions asked, not yet answered. Resume here.** Three questions were put to him: (1) predict `process_grades([])` by hand; (2) find where the two validators disagree about reporting bad input — `"Invalid score"` string vs `None`; (3) which of the four statistics values is formatted inconsistently. Question 2 is the one that matters: it's the third file taking a third position on how a function signals failure, and it's the through-line into M1's *raise vs sentinel*. Other findings held back for after he answers: `isinstance(x, (int, float))` accepts `True`/`False` since `bool` subclasses `int`; the `<= 100` halves of the conditions on lines 4 and 31 are already guaranteed by the guard above them; `pass_rate` is unrounded while `average` is rounded.
+- **`expense_tracker.py`, `bank_accounts.py`** — not reviewed. Committed as written.
+
+### Read on retention
+
+Better than "unknown" implied. Across three files he was right about return shapes, edge-case guards, a past bug and its cause; the misses were concepts not yet learned rather than facts forgotten — different problem, and re-learning was fast. **The useful metric is re-learning speed, and it is good.** Resist letting him file concept gaps as memory failure; he self-criticises ("I need a brain upgrade") on evidence that doesn't support it.
+
+---
+
+## 9. Open items
 
 - Verify M0 retrieval result — it recalibrates everything after a three-week gap
 - Consider UHR credential assessment for the Swedish bachelor question, low priority
