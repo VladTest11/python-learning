@@ -1,7 +1,7 @@
 # Handoff Document — Python Career Transition
 
 **Purpose:** The single source of truth for this work. Read at the start of every session.
-**Last updated:** 6 August 2026
+**Last updated:** 7 November 2026
 
 ---
 
@@ -17,6 +17,16 @@ Work now happens in Claude Code, in the project directory, so code can be run an
 2. `git log --oneline` — the history is the record of what was done and why.
 3. Resume at the **`grade_calculator.py`** questions in section 8; three questions are outstanding and unanswered.
 4. Then `expense_tracker.py` and `bank_accounts.py` (not yet reviewed), then the two remaining M0 items: the **debugger step-through** and the **retrieval check**.
+
+### Coming back after a gap (more than 2 weeks without a commit)
+
+Gaps will happen — paid work wins when it spikes, and the plan itself ranks income first. So the return is planned in advance:
+
+1. Read section 8 only. Not the whole file.
+2. One 30-minute session whose **only** goal is a commit on the smallest open item — or one problem from section 7.
+3. **No re-planning in that session.** The plan did not fail during the gap; the gap is what the plan is built to absorb. Re-planning after every gap is planning as procrastination.
+
+*Why written down:* the 6 Aug → 7 Nov 2026 gap was 93 days, and the first thing the return session did was review the plan. That was useful once. It should not become the ritual.
 
 ---
 
@@ -51,28 +61,34 @@ These came from stated preferences and from mistakes I made earlier. Please hono
 
 Roughly 70% of companies hiring in 2026 prioritise senior talent; about 12% name juniors as their primary focus. Junior share of hiring reportedly fell from ~15% to ~7%. Roles labelled "junior" frequently ask for 1–3 years.
 
-**Live counts from HelloWorld.rs, the main Serbian IT board (6 Aug 2026):**
+**Live counts from HelloWorld.rs, the main Serbian IT board:**
 
-| Filter | Ads |
-|---|---|
-| Python | 60 |
-| Java | 26 |
-| **Junior seniority, all technologies** | **6** |
+| Filter | 6 Aug 2026 | 7 Nov 2026 |
+|---|---|---|
+| Python | 60 | 39 |
+| Java | 26 | 13 |
+| **Junior seniority, all technologies** | **6** | **8** |
+| Prakse (internships) | not counted | **0** |
 
-Of those six: an infosec analyst (Cisco/IPS), a Junior Data Analyst in Belgrade, a junior software engineer at Logeecom (PHP/C#/JS/SQL, 600–2,000 EUR net), an IT assistant at 60,000 RSD, a 3D modelling AI-trainer role, and a mis-tagged "Senior C++ Engineer".
+**6 Aug — the six:** an infosec analyst (Cisco/IPS), a Junior Data Analyst in Belgrade, a junior software engineer at Logeecom (PHP/C#/JS/SQL, 600–2,000 EUR net), an IT assistant at 60,000 RSD, a 3D modelling AI-trainer role, and a mis-tagged "Senior C++ Engineer".
 
-**Genuine junior software developer roles visible that day: one.** Not Python.
+**7 Nov — the eight:** ERP consultant, game designer, IT help desk / network support technician, marketing specialist (German required), first-level tech support, Trainee Functional Consultant (MES) at Enabl3, WordPress developer, and the *same* mis-tagged Senior C++ Engineer (SONiC) at Arista — same ad ID, still up three months later.
 
-*Caveats:* one board, one day, August (Serbian hiring slows for holidays). Seniority tagging is demonstrably unreliable. Most junior roles never get posted — they go via internships (*prakse*, a separate section on that site), referrals, and company career pages.
+**Genuine junior software developer roles visible: one each time, neither Python** (August: Logeecom; November: WordPress/PHP). No junior data analyst ad in November.
+
+*Caveats:* one board, two days — not a trend. The November count was fetched with curl and read from the page HTML (junior = the `senioritet=1` filter); whether August used exactly the same filters is not verifiable. Seniority tagging is demonstrably unreliable. Most junior roles never get posted — they go via internships, referrals, and company career pages. **What November does settle:** August was not a holiday-distorted outlier. And zero internships on the board means watching the board alone is not enough.
 
 ### Decisions and reasoning
 
 **Stay on Python.** Vlad chose Python himself in his opening message; it was never examined until now. Examined: it has more than double Java's postings in Serbia. Switching languages costs months and lands in a tier that's equally closed. No reason to switch.
 
-**Three parallel targets, not one.** Aiming solely at "junior Python developer" postings means aiming at a category with roughly one opening at a time. Target simultaneously:
-1. Junior backend (Python + SQL + FastAPI/Django)
-2. **Internships / prakse** — in this market often the only real door, treated as first-class, not fallback
-3. Junior data analyst — appeared in six-of-six on the day, and matches the global pattern of a wider entry door; Python + SQL serves both, so no wasted study
+**Two targets, plus side doors.** Aiming solely at "junior Python developer" postings means aiming at a category with roughly one opening at a time. Target simultaneously:
+1. Junior backend (Python + SQL + FastAPI/Django) — the one the study plan builds toward
+2. **Internships / prakse** — in this market often the only real door, treated as first-class, not fallback. Watched monthly from now, not from M3 (see the continuous tracks in section 6)
+
+**Side doors — apply if one appears that fits; no dedicated study:**
+- **Junior data analyst.** Originally a third full target. Revised 7 Nov 2026: Vlad's own call is that it is "a side door taken if opened", not a destination. The November count backed that up (no analyst ad). SQL in M2 still serves it for free; nothing analyst-specific (pandas, BI tools) gets scheduled.
+- **Trainee / consultant roles in enterprise and industrial software** (ERP, MES and similar). Two of the eight junior ads on 7 Nov were this kind. *Inferred, ads not opened:* these hire engineers for domain sense and train them on the product — which fits the environmental-engineering asset below better than any developer ad on the board did. Application channel only; no study change.
 
 **Backend web over data engineering.** Data engineering postings are ~3% entry-level vs ~8% for data analyst; employers expect production pipeline experience already. It's a second job, not a first.
 
@@ -90,7 +106,7 @@ Of those six: an infosec analyst (Cisco/IPS), a Junior Data Analyst in Belgrade,
 
 ## 5. Work already completed
 
-All in Python, reviewed and revised. Not yet in git, not yet tested with pytest.
+All in Python, reviewed and revised. Committed to git (6 Aug 2026); not yet tested with pytest.
 
 1. **`temperature_converter.py`** — functions, validation, exception raising, rounding, docstrings
 2. **`string_analyzer.py`** — the dictionary counting pattern (`d[k] = d.get(k, 0) + 1`), `max(d, key=d.get)`, edge cases
@@ -128,15 +144,24 @@ Milestone-based, not week-based, so a pause doesn't read as failure. No deadline
 
 Only the second measures learning.
 
-### Daily minimum
+### Weekly floor
 
-**30 minutes and one commit.** That's a valid day. A bad week should produce a thinner streak, never a gap. Anything beyond the minimum is a bonus, not the expectation.
+**One meaningful commit per week, any size.** That's a valid week. Thirty-minute days are a bonus, not the expectation.
+
+**Crunch weeks** — paid work takes everything: the floor is **one problem from the section 7 bank, solved and committed (~20 minutes).** It needs no context reload, it's self-contained, it leaves a visible commit, and it keeps the algorithm track moving.
+
+**The trigger is a check, not a time slot.** No slot in the week is reliably safe from paid work (Vlad, 7 Nov 2026), so: every **Thursday** a phone reminder asks one question — *has there been a commit this week?* Yes → nothing to do. No → that day's crunch problem happens before the day ends. Thursday leaves days to act; change it freely. **Setup step, Vlad's alone:** create that recurring reminder on the phone.
+
+*Why this replaced "30 minutes and one commit" daily (7 Nov 2026):* the daily rule was followed by 93 days with no commits. A daily streak breaks on day one and then there is nothing left to defend; a rule that's routinely forgiven teaches ignoring rules; and a commit-every-day rule invites filler commits, which a screener reads as gaming. The cause of the gap — paid work crowding out learning — is ongoing, so the floor had to be small enough to survive it.
+
+*Rejected:* a tutorial or video as the crunch floor (feels like progress, leaves no evidence); tying the floor to the start of paid work (puts learning against a deadline at the moment the deadline is tightest — the deadline wins).
 
 ### Continuous tracks (run alongside every milestone)
 
 - **Algorithms:** one problem per session, from the start — not a block at the end. Spacing matters more than volume here. Arrays/strings → hash maps → two pointers → recursion → trees.
 - **Retrieval:** once per milestone, rebuild one earlier exercise from a blank file, no reference.
 - **Reading aloud:** explain one piece of your own code out loud, as if to an interviewer. Interviews test articulation as much as code.
+- **Internship watch (monthly, ~15 minutes, starts now):** the HelloWorld *prakse* section plus a short list of target companies' career pages; apply whenever one fits. Moved out of M5 on 7 Nov 2026 — internships are called first-class in section 4, and gating them behind M3 contradicted that. *Inferred:* intake is probably seasonal; the monthly check will show whether it is.
 
 ---
 
@@ -150,7 +175,7 @@ Only the second measures learning.
 - Write a real README for the repo: what it is, how to run it.
 - Find and use the VS Code debugger once — set a breakpoint, step through `find_by_phone`.
 
-**Done when:** every exercise is committed, the repo has a README, and you've stepped through code in a debugger.
+**Done when:** every exercise is committed, the repo has a README, you've stepped through code in a debugger, **and the `expense_tracker.py` retrieval baseline has been attempted and its result written in section 8.**
 
 ---
 
@@ -158,6 +183,7 @@ Only the second measures learning.
 
 *Testing moved here from "week 11" in the old plan. It arrives now because it lets Vlad verify his own work instead of waiting for a reviewer.*
 
+- **First:** remove or rename `test_version.py` and `the_zen_of_python.py` (scratch files). `test_version.py` matches pytest's default `test_*.py` pattern and prints at import, which will confuse the first ever `pytest` run.
 - pytest basics: test files, assertions, running the suite.
 - **Retrofit tests onto all six existing exercises.** This is the highest-value work in the plan — it re-teaches the old code, catches bugs like the `find_by_phone` one automatically, and makes the repo look professional.
 - Exception handling done properly: custom exceptions, when to raise vs return a sentinel.
@@ -172,14 +198,16 @@ Only the second measures learning.
 
 ### M2 — SQL
 
-*Promoted from one line in the old plan to a full milestone. It's heavily tested for junior backend roles and it's also the entry ticket for the data-analyst target — one body of study serving two of the three targets.*
+*Promoted from one line in the old plan to a full milestone. It's heavily tested for junior backend roles and it's also the entry ticket for the data-analyst side door — one body of study serving both, at no extra cost.*
 
 - Relational modelling: tables, keys, relationships.
 - `SELECT`, `WHERE`, `JOIN` (inner/left), `GROUP BY`, aggregates, subqueries.
-- PostgreSQL locally. `psycopg` or SQLAlchemy from Python.
+- **SQLite first** (`sqlite3` ships with Python — nothing to install). PostgreSQL arrives in M3, when deploying, since free hosts provide it; `psycopg` or SQLAlchemy then.
 - Migrations, conceptually.
 
-**Exercise — port the ExpenseTracker to a database.** Same features, PostgreSQL instead of a list. *Why:* it makes the CRUD-to-SQL mapping concrete — `add_expense` becomes INSERT, `get_category_summary` becomes GROUP BY. The pattern he already knows becomes the pattern employers pay for.
+*Why SQLite first (7 Nov 2026):* the SQL is the skill, and it's the same SQL. On a bursty schedule, setup friction is what turns a 30-minute session into no session. *Rejected:* Postgres from day one — more realistic, but it puts installation in front of learning.
+
+**Exercise — port the ExpenseTracker to a database.** Same features, SQLite instead of a list. *Why:* it makes the CRUD-to-SQL mapping concrete — `add_expense` becomes INSERT, `get_category_summary` becomes GROUP BY. The pattern he already knows becomes the pattern employers pay for.
 
 **Done when:** you can write a multi-table join with grouping without looking it up.
 
@@ -189,7 +217,7 @@ Only the second measures learning.
 
 - HTTP basics: methods, status codes, request/response.
 - FastAPI: routes, path and query parameters, Pydantic models, automatic docs.
-- REST design; CRUD endpoints against the database from M2.
+- REST design; CRUD endpoints against the database from M2, **moved from SQLite to PostgreSQL** here — the deploy host provides it, and the move itself teaches what differs.
 - Auth basics conceptually; environment variables and secrets.
 - Deploy it somewhere free. **A URL a stranger can open is worth more than any amount of local code.**
 
@@ -207,6 +235,8 @@ Only the second measures learning.
 
 Use real open data. Deploy it. Write the README for a hiring manager, not a developer.
 
+**Done when:** it's deployed on real open data, the README reads for a hiring manager, and you can explain out loud one domain decision the code makes that a developer without an environmental background would get wrong.
+
 ---
 
 ### M5 — Applications (starts at M3, not at the end)
@@ -215,7 +245,7 @@ Use real open data. Deploy it. Write the README for a hiring manager, not a deve
 
 - CV listing the unregistered work. A CV is not a legal document; list it. Ask those former employers for informal references or LinkedIn recommendations — costs nothing.
 - LinkedIn and GitHub as the primary screening surfaces.
-- **Channels in priority order:** internships/prakse → referrals and direct outreach → company career pages → job boards. Boards are last because that's where the 800-applicant pools are.
+- **Channels in priority order:** internships/prakse (already watched monthly from section 6, before M3) → referrals and direct outreach → company career pages → job boards. Boards are last because that's where the 800-applicant pools are.
 - Target enterprise, fintech, healthcare, infrastructure, and outsourcing firms in Belgrade and Novi Sad. Outsourcing firms are a strong first step: local employment, local hiring bar, international codebase and English exposure — which is what makes a remote or Swedish move possible later.
 - Interview practice: explaining code aloud, reading unfamiliar code, and the "what can go wrong" question.
 
@@ -286,18 +316,34 @@ Moved from the web chat to Claude Code running in the project directory. That ch
 - **`temperature_converter.py`** — described it accurately from a skim. Real finding: `float(temp)` also raises `ValueError`, so bad-number and bad-unit failures are indistinguishable to a caller, and the docstring documents only one. Left unfixed for M1.
 - **`string_analyzer.py`** — got the return shape and the empty-collection guard (including *why* `max()` errors). Missed `key=`. The gap was not memory: he had not learned that `freq.get` without parentheses is the method passed as a value. Retaught in ~90 seconds with a live demo. Same pattern recurs in `sorted(key=len)` and the lambda in `expense_tracker.py`.
 - **`contact_book.py`** — correctly judged `find_by_phone` fixed, and recalled the bug was indentation. Found live: the docstring sat *above* the `def`, making it a discarded expression with `__doc__ = None`. **Vlad fixed it himself mid-session.** Still shaky on `self` — thought it was a call or an initialisation step, not the instance. Retaught as `book.method(x)` → `Class.method(book, x)`. **The M0 debugger task is now targeted: breakpoint in `find_by_phone`, watch `self` in the variables pane and see that it *is* `book`.**
-- **`grade_calculator.py`** — **questions asked, not yet answered. Resume here.** Three questions were put to him: (1) predict `process_grades([])` by hand; (2) find where the two validators disagree about reporting bad input — `"Invalid score"` string vs `None`; (3) which of the four statistics values is formatted inconsistently. Question 2 is the one that matters: it's the third file taking a third position on how a function signals failure, and it's the through-line into M1's *raise vs sentinel*. Other findings held back for after he answers: `isinstance(x, (int, float))` accepts `True`/`False` since `bool` subclasses `int`; the `<= 100` halves of the conditions on lines 4 and 31 are already guaranteed by the guard above them; `pass_rate` is unrounded while `average` is rounded.
+- **`grade_calculator.py`** — **questions asked, not yet answered. Resume here.** Three questions were put to him: (1) predict `process_grades([])` by hand; (2) find where the two validators disagree about reporting bad input — `"Invalid score"` string vs `None`; (3) which of the four statistics values is formatted inconsistently. Question 2 is the one that matters: it's the third file taking a third position on how a function signals failure, and it's the through-line into M1's *raise vs sentinel*. Other findings held back for after he answers: `isinstance(x, (int, float))` accepts `True`/`False` since `bool` subclasses `int`; the `<= 100` halves of the conditions in `calculate_letter_grade` (the `>= 90` branch) and `calculate_statistics` (the `>= 60` pass check) are already guaranteed by the guard above them; `pass_rate` is unrounded while `average` is rounded.
 - **`expense_tracker.py`, `bank_accounts.py`** — not reviewed. Committed as written.
 
 ### Read on retention
 
 Better than "unknown" implied. Across three files he was right about return shapes, edge-case guards, a past bug and its cause; the misses were concepts not yet learned rather than facts forgotten — different problem, and re-learning was fast. **The useful metric is re-learning speed, and it is good.** Resist letting him file concept gaps as memory failure; he self-criticises ("I need a brain upgrade") on evidence that doesn't support it.
 
+### 7 November 2026 — plan review after a 93-day gap
+
+No commits between 6 Aug and 7 Nov. Vlad's account of it: "I had work to do, and I neglected my own needs for learning … It happened, I hope it won't again." Read on that: the conclusion (don't dwell, don't re-plan) is right; the reasoning ("a one-off") isn't — the paid work is ongoing and will spike again, so the plan now assumes it will. And "neglected" overstates it: choosing income in a crunch is the plan's own priority order. What failed was the plan having nothing small enough for a crunch week.
+
+**Changed in this file** (reasoning sits next to each change):
+
+- Section 1: a "coming back after a gap" protocol.
+- Section 4: November HelloWorld counts beside August's; data analyst demoted to a side door (Vlad's call); trainee/consultant roles in enterprise/industrial software added as a side door.
+- Section 5: stale "not yet in git" fixed.
+- Section 6: daily minimum → weekly floor, crunch-week rule, Thursday check; internship watch moved into the continuous tracks; M0 done-when now includes the retrieval baseline; M1 starts by clearing the scratch files; M2 is SQLite-first; M4 has a done-when.
+- Section 8: `grade_calculator.py` findings now cite functions, not line numbers (the old numbers came from a stripped scratch copy that no longer exists).
+
+**Not changed, deliberately:** the section 4 decisions themselves, the working agreement, the two checks, the problem bank, the README (public-facing), and the Sweden salary figure (unverified; only relevant after an offer).
+
+**Still open from 6 Aug:** the three `grade_calculator.py` questions, the review of `expense_tracker.py` and `bank_accounts.py`, the debugger step-through, and the retrieval baseline. Per section 1, the next session's goal is one commit on the smallest of these — not more planning.
+
 ---
 
 ## 9. Open items
 
-- Verify M0 retrieval result — it recalibrates everything after a three-week gap
+- Set up the Thursday phone reminder (section 6) — Vlad's step
+- First monthly internship / career-page check (section 6)
 - Consider UHR credential assessment for the Swedish bachelor question, low priority
-- Re-run the HelloWorld junior count outside August; the holiday distortion is real
 - Decide the specific M4 domain project once M3 is underway
